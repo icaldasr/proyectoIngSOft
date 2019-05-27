@@ -50,10 +50,19 @@
                    <button class="boton_personalizado icon-check" onclick="location.href='ProyectosCompletados.jsp'">Mis proyectos</button><br>
                    <br>
                    <button class="boton_personalizado icon-tools" onclick="location.href='Herramientas.jsp'">Herramientas</button><br>
+                   <br>
+                   <button class="boton_personalizado icon-chat" onclick="location.href='foro.jsp'">Foro</button><br>
                    <!--<button type="button" onclick="" style='width:150px; height:75px'>Grupos de Trabajo</button><br>-->
             </table>
         </div>
         <div class="screenMain">
+        <!--%
+            public void setNombreProyecto(String nombre){
+                application.setAttribute("prueba",nombre);
+                
+            out.print("prueba");
+            }
+        %-->
         <%
             Connection cnx=null;
             Statement sta=null;
@@ -65,15 +74,34 @@
 
                 sta=cnx.createStatement();
                 rs=sta.executeQuery("select * from usuxproy where usu = '"+txtUsuario+"'");
+               
 
             while(rs.next()){
+
+
                 %>
+
 
             <div action="usuario.jsp" class="contproy">
 
-                <%=rs.getString(3)%> -- Estado: <%=rs.getString(5)%> <br>
+                <%=rs.getString(3)%> <br> Estado: <%=rs.getString(5)%>
+                
+                <!--%String nomProyecto = rs.getString(3);%>
+                
+                <!--String prue = (String)application.getAttribute("nomProyecto");%>-->
+
+                
+                <!--%String prueba2 = (String)getNombreProyecto();%>-->   
+                
+                <!--%application.setAttribute("prueba",rs.getString(3));
+                
+                String prue = (String)application.getAttribute("prueba");%-->
+                
+                <%String pruebaa = rs.getString(3);%>
+                
                 <br>
-                <a href="mainProyecto.jsp" title="EditarProyecto"> <input class ="imgusuario2" type=image src="Iconos/project2.png" ></a>
+                <a href="mainProyecto.jsp" title="ModificarProyecto" onclick="setNombreProyecto(pruebaa)"> <input class ="imgusuario2" type=image src="Iconos/project2.png"  ></a> <!-- llamar función acá-->
+
                 <a href="AgregarUsuProy.jsp" title="AgregarColaborador"> <input class ="imgusuario2" name =<%=rs.getString(3)%> value=<%=rs.getString(3)%> type=image src="Iconos/New.png" ></a>
                 <a href="#ventana1" data-toggle="modal" title="AgregarRequisito"> <input class ="imgusuario2" type=image src="Iconos/requisito.png" ></a>
                 <div class="modal fade" id="ventana1">

@@ -19,8 +19,15 @@
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="css/fonts.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
-        
      
+    <!--%
+        public String getNombreProyecto(){
+        String prue = (String)application.getAttribute("prueba");%>
+        return prue;
+        }
+    %>-->
+    
+    <%String prue = (String)application.getAttribute("prueba");%>
     </head>
     <body Style = "background-color:#85C1E9  ">
         <div class="container" style="background-color:#85C1E9">       
@@ -53,14 +60,34 @@
         <br>
         
         
-        <!--
+        <%
         
             HttpSession sessionStatus = request.getSession();
             Login usuario = (Login) sessionStatus.getAttribute("Usuario");
             String txtUsuario = usuario.getUsuario();
 
         %> 
-        -->
+        
+        <%
+            Connection cnx=null;
+            Statement sta=null;
+            ResultSet rs=null;
+
+            try{
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                cnx=DriverManager.getConnection("jdbc:oracle:thin:@186.115.183.198:1521:XE","Proyecto","proyecto");
+
+                sta=cnx.createStatement();
+                rs=sta.executeQuery("select * from usuxproy where usu = '"+txtUsuario+"'");
+
+            }catch (Exception e) {
+
+                        out.print("Este es el error:" + e);
+                        e.printStackTrace();
+                    }
+                
+        %>
+        
         <div class="container-fluid" style="background-color:#D6EAF8">
             <div class="row">
                 <div class="col-md-2">
@@ -266,11 +293,28 @@
                         </li>
                     </ul>
                 </div>
+                
+                <!--  <script>
+                    function setNombreProyecto(){
+                
+                        String nomProyecto = rs.getString(3);
+                        session.setAttribute("prueba",rs.getString(3));%>
+
+
+                   }
+                </script>-->
+                
+
                 <div class="col-md-6" align="justify">
+                    <!--%String prue = (String)session.getAttribute("prueba");%>-->
                     <h2 style="font-family:Tahoma">Descripción global del proyecto</h2>
                     <p style="font-family:Tahoma"> En el presente documento se encontrará la información acerca de las características
                         del producto de software, interfaces de usuario, interfaces del sistema, descripción
-                        de los requerimientos funcionales ...</p>
+                        de los requerimientos funcionales ...      </p>
+                    <p style="font-family:Tahoma"> Proyecto: <%=prue%> </p>
+                    
+                    
+
                 </div>    
                 <div class="col-md-4" align="center">
                     <a href="#" title="Ver diagramas"> <input class ="imgusuario3" type=image src="Iconos/diagram.png" ></a>
@@ -282,23 +326,12 @@
         <br>
         <br>
         <br>
-        
         <!--
-            Connection cnx=null;
-            Statement sta=null;
-            ResultSet rs=null;
 
-            try{
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                cnx=DriverManager.getConnection("jdbc:oracle:thin:@181.234.31.151:1521:XE","Proyecto","proyecto");
-
-                sta=cnx.createStatement();
-                rs=sta.executeQuery("select * from usuxproy where usu = '"+txtUsuario+"'");
-
-            while(rs.next()){
-        %>
         -->
-        
+
+     
+            
         <div class="container-fluid">  
             <table class="table table-bordered table-hover" style="color:#000;background-color:#fff">
                 <thead>
