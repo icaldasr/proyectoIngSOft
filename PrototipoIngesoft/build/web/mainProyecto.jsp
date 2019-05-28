@@ -26,8 +26,10 @@
         return prue;
         }
     %>-->
-    
-    <%String prue = (String)application.getAttribute("prueba");%>
+    <% if(request.getParameter("btnModificar")!=null){
+                   application.setAttribute("prueba",request.getParameter("btnModificar"));
+            }
+    String prue = (String)application.getAttribute("prueba");%>
     </head>
     <body Style = "background-color:#85C1E9  ">
         <div class="container" style="background-color:#85C1E9">       

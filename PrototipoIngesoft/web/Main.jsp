@@ -56,13 +56,8 @@
             </table>
         </div>
         <div class="screenMain">
-        <!--%
-            public void setNombreProyecto(String nombre){
-                application.setAttribute("prueba",nombre);
-                
-            out.print("prueba");
-            }
-        %-->
+                      
+            
         <%
             Connection cnx=null;
             Statement sta=null;
@@ -100,8 +95,14 @@
                 <%String pruebaa = rs.getString(3);%>
                 
                 <br>
-                <a href="mainProyecto.jsp" title="ModificarProyecto" onclick="setNombreProyecto(pruebaa)"> <input class ="imgusuario2" type=image src="Iconos/project2.png"  ></a> <!-- llamar función acá-->
-
+                <!--a href="mainProyecto.jsp" title="ModificarProyecto"  <input class ="imgusuario2" type=image src="Iconos/project2.png"  ></a> -->
+                
+                <form class="" action="mainProyecto.jsp" method="Post"
+                <a href="mainProyecto.jsp" title="ModificarProyecto">
+                    <input class ="imgusuario2" type=submit name="btnModificar" value="<%=rs.getString(3)%>" src="Iconos/project2.png"></a> <!-- llamar función acá-->       
+                </form>
+                
+               <!-- src="Iconos/project2.png"  value="<=rs.getString(3)%>-->
                 <a href="AgregarUsuProy.jsp" title="AgregarColaborador"> <input class ="imgusuario2" name =<%=rs.getString(3)%> value=<%=rs.getString(3)%> type=image src="Iconos/New.png" ></a>
                 <a href="#ventana1" data-toggle="modal" title="AgregarRequisito"> <input class ="imgusuario2" type=image src="Iconos/requisito.png" ></a>
                 <div class="modal fade" id="ventana1">
