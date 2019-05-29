@@ -80,31 +80,26 @@
             <div action="usuario.jsp" class="contproy">
 
                 <%=rs.getString(3)%> <br> Estado: <%=rs.getString(5)%>
-                
-                <!--%String nomProyecto = rs.getString(3);%>
-                
-                <!--String prue = (String)application.getAttribute("nomProyecto");%>-->
-
-                
-                <!--%String prueba2 = (String)getNombreProyecto();%>-->   
-                
-                <!--%application.setAttribute("prueba",rs.getString(3));
-                
-                String prue = (String)application.getAttribute("prueba");%-->
-                
-                <%String pruebaa = rs.getString(3);%>
-                
+              
                 <br>
-                <!--a href="mainProyecto.jsp" title="ModificarProyecto"  <input class ="imgusuario2" type=image src="Iconos/project2.png"  ></a> -->
                 
-                <form class="" action="mainProyecto.jsp" method="Post"
-                <a href="mainProyecto.jsp" title="ModificarProyecto">
-                    <input class ="imgusuario2" type=submit name="btnModificar" value="<%=rs.getString(3)%>" src="Iconos/project2.png"></a> <!-- llamar función acá-->       
-                </form>
-                
-               <!-- src="Iconos/project2.png"  value="<=rs.getString(3)%>-->
-                <a href="AgregarUsuProy.jsp" title="AgregarColaborador"> <input class ="imgusuario2" name =<%=rs.getString(3)%> value=<%=rs.getString(3)%> type=image src="Iconos/New.png" ></a>
-                <a href="#ventana1" data-toggle="modal" title="AgregarRequisito"> <input class ="imgusuario2" type=image src="Iconos/requisito.png" ></a>
+                <table>
+                    <tr>
+                        <td>
+                        <form class="" action="mainProyecto.jsp" method="Post">
+                            <input type="hidden" name="btnModificar" value="<%=rs.getString(3)%>" src="Iconos/project2.png"></a>
+                            <input class="imgusuario2" type="image" name="btnMostrar" src="Iconos/project2.png" title="ModificarProyecto"></a>       
+                        </form>
+                        </td>
+                        <td>
+                            <a href="AgregarUsuProy.jsp" title="AgregarColaborador"> <input class ="imgusuario2" name =<%=rs.getString(3)%> value=<%=rs.getString(3)%> type=image src="Iconos/New.png" ></a>
+                        </td>
+                        <td>
+                            <a href="#ventana1" data-toggle="modal" title="AgregarRequisito"> <input class ="imgusuario2" type=image src="Iconos/requisito.png" ></a>
+                        </td>
+                    </tr>
+                </table>
+
                 <div class="modal fade" id="ventana1">
                     <div class="modal-dialog">
                         <div class="modal-content">

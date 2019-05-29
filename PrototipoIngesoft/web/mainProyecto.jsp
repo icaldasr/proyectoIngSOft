@@ -20,16 +20,12 @@
         <link rel="stylesheet" href="css/fonts.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
      
-    <!--%
-        public String getNombreProyecto(){
-        String prue = (String)application.getAttribute("prueba");%>
-        return prue;
-        }
-    %>-->
+
     <% if(request.getParameter("btnModificar")!=null){
                    application.setAttribute("prueba",request.getParameter("btnModificar"));
             }
     String prue = (String)application.getAttribute("prueba");%>
+   
     </head>
     <body Style = "background-color:#85C1E9  ">
         <div class="container" style="background-color:#85C1E9">       
@@ -295,18 +291,7 @@
                         </li>
                     </ul>
                 </div>
-                
-                <!--  <script>
-                    function setNombreProyecto(){
-                
-                        String nomProyecto = rs.getString(3);
-                        session.setAttribute("prueba",rs.getString(3));%>
-
-
-                   }
-                </script>-->
-                
-
+             
                 <div class="col-md-6" align="justify">
                     <!--%String prue = (String)session.getAttribute("prueba");%>-->
                     <h2 style="font-family:Tahoma">Descripción global del proyecto</h2>
@@ -314,10 +299,7 @@
                         del producto de software, interfaces de usuario, interfaces del sistema, descripción
                         de los requerimientos funcionales ...      </p>
                     <p style="font-family:Tahoma"> Proyecto: <%=prue%> </p>
-                    
-                    
-
-                </div>    
+             </div>    
                 <div class="col-md-4" align="center">
                     <a href="#" title="Ver diagramas"> <input class ="imgusuario3" type=image src="Iconos/diagram.png" ></a>
                 </div>
@@ -328,11 +310,7 @@
         <br>
         <br>
         <br>
-        <!--
 
-        -->
-
-     
             
         <div class="container-fluid">  
             <table class="table table-bordered table-hover" style="color:#000;background-color:#fff">
