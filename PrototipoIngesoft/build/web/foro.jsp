@@ -107,7 +107,7 @@
                     try {
 
                         Class.forName("oracle.jdbc.driver.OracleDriver");
-                        cnx = DriverManager.getConnection("jdbc:oracle:thin:@181.234.31.151:1521:XE", "Proyecto", "proyecto");
+                        cnx=DriverManager.getConnection("jdbc:oracle:thin:@labsistemas.javerianacali.edu.co:1521:XE","MEZA","mdr20191");
 
                         sta = cnx.createStatement();
                         rs = sta.executeQuery("select * from posts");

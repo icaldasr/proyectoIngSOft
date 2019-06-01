@@ -48,7 +48,7 @@
 
                     try{
                         Class.forName("oracle.jdbc.driver.OracleDriver");
-                        cnx=DriverManager.getConnection("jdbc:oracle:thin:@186.115.183.198:1521:XE","Proyecto","proyecto");
+                        cnx=DriverManager.getConnection("jdbc:oracle:thin:@labsistemas.javerianacali.edu.co:1521:XE","MEZA","mdr20191");        
 
                         sta=cnx.createStatement();
                         rs=sta.executeQuery("select * from usuxproy where usu = '"+txtUsuario+"' and completado = 1 ");
