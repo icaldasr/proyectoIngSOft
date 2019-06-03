@@ -47,7 +47,7 @@
                     cnx=DriverManager.getConnection("jdbc:oracle:thin:@labsistemas.javerianacali.edu.co:1521:XE","MEZA","mdr20191");
                 
                     sta=cnx.createStatement();
-                    rs=sta.executeQuery("select * from usuarios where usu = '"+txtUsuario+"' " );
+                    rs=sta.executeQuery("select * from Usuario where usuario = '"+txtUsuario+"' " );
                     // request.getRequestDispatcher("Main.jsp").forward(request, response); 
                  while(rs.next()){
                  %>
