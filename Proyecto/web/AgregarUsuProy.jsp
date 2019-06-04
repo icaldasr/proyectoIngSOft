@@ -29,6 +29,8 @@
                    application.setAttribute("nombreP",request.getParameter("btnModificar"));
             }
     String nombreProyecto = (String)application.getAttribute("nombreP");
+    
+
     //out.print(prue);
     %>
     

@@ -53,7 +53,9 @@
                    <br>
                    <button class="boton_personalizado icon-tools" onclick="location.href='Herramientas.jsp'">Herramientas</button><br>
                    <br>
-                   <button class="boton_personalizado icon-chat" onclick="location.href='foro.jsp'">Foro</button><br>
+
+                    <!--input class ="imgusuario2" type=submit name="btnModificar" value="<=rs.getString(2)%>" src="Iconos/project2.png"-->                     
+                   <button class="boton_personalizado icon-chat" method="Post" onclick="location.href='foroInicio.jsp'" name="btnUsuario" value=<%=txtUsuario%> >Foro</button><br>
                    <!--<button type="button" onclick="" style='width:150px; height:75px'>Grupos de Trabajo</button><br>-->
             </table>
         </div>

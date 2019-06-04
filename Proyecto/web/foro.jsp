@@ -23,11 +23,9 @@
             margin-right: auto;
             padding: 2%;
         }
-
         .question-type {
             display: flex;
         }
-
         .inpComment {
             box-shadow: 0;
             border: 0;
@@ -67,6 +65,8 @@
                 Login usuario = (Login) sessionStatus.getAttribute("Usuario");
                 String txtUsuario = usuario.getUsuario();
                 
+                    String proyectoSeleccionado = request.getParameter("ProyectoSelect");
+                
             %>
             <h4 style="font-size: 250%;" align="center">FORO </h4><br>
 
@@ -96,12 +96,10 @@
            
                     String Comentario = request.getParameter("comentarios");
                     //String usu = request.getParameter("txtUsu");
-
                     Connection cnx = null;
                     Statement sta = null;
                     ResultSet rs = null;
                     CallableStatement callProc = null;
-
                     int id = 0;
 
                     try {
@@ -110,7 +108,7 @@
                         cnx=DriverManager.getConnection("jdbc:oracle:thin:@labsistemas.javerianacali.edu.co:1521:XE","MEZA","mdr20191");
 
                         sta = cnx.createStatement();
-                        rs = sta.executeQuery("select * from posts");
+                        rs = sta.executeQuery("select * from foro");
 
                         //out.print("resultado "+rs);
                         while (rs.next()) {
@@ -123,16 +121,14 @@
                         }
                        
                         //out.print("Resultado"+id+" "+ txtUsuario+" "+Comentario);
-                        rs = sta.executeQuery("insert into posts values('" + id + "','" + txtUsuario + "','" + Comentario + "')");
+                        rs = sta.executeQuery("insert into foro values('" + id + "','" + txtUsuario + "','" + Comentario + "')");
                         sta.executeQuery("commit");
                         //out.print("resultado " + rs);
 
                         sta.close();
                         rs.close();
                         cnx.close();
-
                     } catch (Exception e) {
-
                         out.print(e + "  este es el error");
                         e.printStackTrace();
                     }
@@ -143,13 +139,11 @@
             <%                Connection cnx = null;
                 Statement sta = null;
                 ResultSet rs = null;
-
                 try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    cnx = DriverManager.getConnection("jdbc:oracle:thin:@181.234.31.151:1521:XE", "Proyecto", "proyecto");
-
+                        cnx=DriverManager.getConnection("jdbc:oracle:thin:@labsistemas.javerianacali.edu.co:1521:XE","MEZA","mdr20191");
                     sta = cnx.createStatement();
-                    rs = sta.executeQuery("select * from posts");
+                    rs = sta.executeQuery("select * from foro");
                     int contador = 0;
                     while (rs.next()) 
                     {
