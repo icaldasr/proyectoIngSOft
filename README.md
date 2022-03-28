@@ -4,4 +4,6 @@ Aplicacion que consiste en un generador de BRD online de acuerdo a informacion i
 
 Tiene opciones de creacion de usuario, inicio de sesion, crear grupos de desarrolladores, Foro.
 
+JSP, CSS
+
 *Proyecto de Clase
